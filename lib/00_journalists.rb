@@ -14,6 +14,13 @@ p "Le nombre de majuscule dans le handle est de:"
 #pas encore réussie
 
 p "Trie par ordre alphabétique du tableau"
-    p journalistes.sort_by(&: length)
+b = journalistes.sort_by do |s|
+    if s =~ /^\d+$/
+      [2, $&.to_i]
+    else
+      [1, s]
+    end
+  end
+p b
    
 
